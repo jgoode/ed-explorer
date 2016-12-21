@@ -19,6 +19,10 @@ module.exports = {
     totalCredits: { type: 'float', columnName: 'TotalCredits' },
     user: {
       model: 'user'
+    },
+    starSystems: {
+      collection: 'starSystem',
+      via: 'expedition'
     }
   }
 };
