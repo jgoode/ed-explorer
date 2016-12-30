@@ -15,7 +15,7 @@ module.exports = {
     var allowedParameters = [
       "email", "password", "commander"
     ]
-    
+  
     var data = _.pick(req.body, allowedParameters);
     
     User.create(data).then(function (user) {

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * ExpeditionController
@@ -24,7 +24,13 @@ module.exports = {
 
   getCurrent: function getCurrent(req, res) {
 
-    Expedition.query('SELECT * from expedition where "EndDate" is null', function (err, data) {
+    var id = req.param('userId');
+
+    if (id === undefined || id === '') {
+      return ResponseService.json(400, res, "Error(s) encountered", 'Parameter [userId] required..e.g. ../getCurrent?userId=1');
+    }
+
+    Expedition.query('SELECT * from expedition where "EndDate" is null and "user" = $1', [id], function (err, data) {
       if (err) {
         return ResponseService.json(400, res, "Error(s) encountered", err);
       }
