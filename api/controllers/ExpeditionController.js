@@ -19,5 +19,27 @@ module.exports = {
       }
     )
   } */
+
+  getCurrent: function(req, res) {
+
+    Expedition.query('SELECT * from expedition where "EndDate" is null', function(err, data) {
+      if (err) {
+        return ResponseService.json(400, res, "Error(s) encountered", err)
+      }
+      var responseData = {
+        expedition : {}
+      }
+      
+      if (data) {
+        if (data.rows.length > 0) {
+          responseData = {
+            expedition: data.rows[0]
+          }
+        }
+      }
+  
+      return res.status(200).json(responseData);
+    });
+  }
 };
 
