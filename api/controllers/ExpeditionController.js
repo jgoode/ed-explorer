@@ -21,9 +21,9 @@ module.exports = {
   } */
 
   getCurrent: function(req, res) {
-    
+
+
     var id = req.param('userId');
-    
     if (id === undefined || id === '') {
       return ResponseService.json(400, res, "Error(s) encountered", 'Parameter [userId] required..e.g. ../getCurrent?userId=1');
     }
@@ -35,7 +35,7 @@ module.exports = {
       var responseData = {
         expedition : {}
       }
-      
+
       if (data) {
         if (data.rows.length > 0) {
           responseData = {
@@ -43,7 +43,7 @@ module.exports = {
           }
         }
       }
-  
+
       return res.status(200).json(responseData);
     });
   }
