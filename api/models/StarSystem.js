@@ -19,6 +19,7 @@ module.exports = {
     fuelUsed: {type:'float', columnName:'FuelUsed'},
     fuelLevel: {type:'float', columnName:'FuelLevel'},
     jumpDistance: {type:'float', columnName:'JumpDistance'},
+    timeStamp: {type: 'date', columnName:'TimeStamp'},
     expedition : {
       model: 'expedition'
     },

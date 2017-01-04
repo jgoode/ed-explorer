@@ -30,6 +30,7 @@ module.exports = {
     orbitalInclination: {type:'float', columnName:'OrbitalInclination'},
     periapsis: {type:'float', columnName:'Periapsis'},
     orbitalPeriod: {type:'float', columnName:'OrbitalPeriod'},
+    timeStamp: {type: 'date', columnName:'TimeStamp'},
     starSystem : {
       model: 'starSystem'
     }
